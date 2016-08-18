@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:wheel="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
-    tools:context=".ui.activity.FeedActivity">
+    tools:context=".ui.view.activity.WallPhotosActivity">
 
     <android.support.design.widget.AppBarLayout
         android:id="@+id/appbar"
@@ -21,24 +21,22 @@
     </android.support.design.widget.AppBarLayout>
 
     <FrameLayout
-        android:id="@+id/fragment_container"
+        android:id="@+id/container"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginTop="?attr/actionBarSize" />
+        android:layout_marginTop="?attr/actionBarSize">
 
-    <FrameLayout
-        android:id="@+id/mainProgress"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginTop="?attr/actionBarSize"
-        android:clickable="true"
-        android:visibility="visible">
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/rv_wall_content"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
 
-        <ProgressBar
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center" />
-
+        <com.pnikosis.materialishprogress.ProgressWheel
+            style="@style/ProgressWheelTheme"
+            android:id="@+id/pw_wall_content"
+            wheel:matProg_barColor="@color/colorAccent"
+            wheel:matProg_progressIndeterminate="true"
+             />
     </FrameLayout>
 
 </android.support.design.widget.CoordinatorLayout>
