@@ -10,7 +10,7 @@ import rx.Subscriber;
  */
 public interface GetWallPhotosUseCase {
 
-    void execute(Subscriber<Wall> subscriber);
+    void execute(Subscriber<Wall> subscriber, int page);
 
     void unSubscribe();
 }

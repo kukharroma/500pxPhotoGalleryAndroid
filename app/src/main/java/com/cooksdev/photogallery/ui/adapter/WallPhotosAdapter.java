@@ -12,7 +12,12 @@ import com.bumptech.glide.load.resource.drawable.GlideDrawable;
 import com.bumptech.glide.request.RequestListener;
 import com.bumptech.glide.request.target.Target;
 import com.cooksdev.photogallery.R;
+import com.cooksdev.photogallery.model.Photo;
+import com.cooksdev.photogallery.model.Wall;
 import com.pnikosis.materialishprogress.ProgressWheel;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -23,7 +28,24 @@ import butterknife.ButterKnife;
 public class WallPhotosAdapter extends RecyclerView.Adapter<WallPhotosAdapter.PhotoViewHolder> {
 
     private Context context;
+    private List<Photo> data = new ArrayList<>();
 
+    private Wall wall;
+
+    public void setWall(Wall wall){
+        this.wall = wall;
+        this.notifyDataSetChanged();
+    }
+
+    public void updateWall(Wall newWall){
+        this.data.addAll(newWall.getPhotos());
+        this.notifyDataSetChanged();
+    }
+
+    @Override
+    public int getItemCount() {
+        return data.size();
+    }
 
     @Override
     public PhotoViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
@@ -37,24 +59,21 @@ public class WallPhotosAdapter extends RecyclerView.Adapter<WallPhotosAdapter.Ph
 
     @Override
     public void onBindViewHolder(PhotoViewHolder holder, int position) {
-        holder.bindPhotoImage("");
-    }
-
-    @Override
-    public int getItemCount() {
-        return 0;
+        Photo photo = data.get(position);
+        holder.bindPhotoImage(photo.getUrl());
     }
 
     class PhotoViewHolder extends RecyclerView.ViewHolder {
 
-        @BindView(R.id.iv_photo_item)
+//        @BindView(R.id.iv_photo_item)
         AppCompatImageView ivPhotoItem;
-        @BindView(R.id.pw_photo_item)
+//        @BindView(R.id.pw_photo_item)
         ProgressWheel pwPhotoItem;
 
         public PhotoViewHolder(View itemView) {
             super(itemView);
-            ButterKnife.bind(this, itemView);
+            ivPhotoItem = (AppCompatImageView) itemView.findViewById(R.id.iv_photo_item);
+            pwPhotoItem = (ProgressWheel) itemView.findViewById(R.id.pw_photo_item);
         }
 
         public void bindPhotoImage(String iconUrl) {

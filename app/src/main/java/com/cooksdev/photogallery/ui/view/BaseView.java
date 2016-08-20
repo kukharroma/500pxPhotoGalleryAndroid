@@ -5,4 +5,5 @@ package com.cooksdev.photogallery.ui.view;
  */
 public interface BaseView {
     void initialize();
+    void showMessage(String message);
 }

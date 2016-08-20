@@ -5,7 +5,8 @@ package com.cooksdev.photogallery.model;
  */
 public class Photo {
     private String url;
-    private String authorName;
+    private String firstName;
+    private String lastName;
     private String cameraModel;
 
     public String getUrl() {
@@ -16,12 +17,20 @@ public class Photo {
         this.url = url;
     }
 
-    public String getAuthorName() {
-        return authorName;
+    public String getFirstName() {
+        return firstName;
     }
 
-    public void setAuthorName(String authorName) {
-        this.authorName = authorName;
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
+
+    public String getLastName() {
+        return lastName;
+    }
+
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
     }
 
     public String getCameraModel() {

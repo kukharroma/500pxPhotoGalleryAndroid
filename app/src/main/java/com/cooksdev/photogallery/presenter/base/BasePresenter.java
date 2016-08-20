@@ -6,4 +6,6 @@ package com.cooksdev.photogallery.presenter.base;
 public interface BasePresenter<T> {
 
     void setView(T t);
+
+    void onStop();
 }

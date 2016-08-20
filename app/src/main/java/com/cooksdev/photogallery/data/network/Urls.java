@@ -5,7 +5,7 @@ package com.cooksdev.photogallery.data.network;
  */
 public  class Urls {
 
-    public static final String BASE_PHOTO_FEED_URL = "https://api.500px.com/v1/photos?feature=popular&consumer_key=wB4ozJxTijCwNuggJvPGtBGCRqaZVcF6jsrzUadF";
-
+    public static final String BASE_URL = "https://api.500px.com/";
+    public static final String WALL_PHOTOS = "v1/photos?feature=popular&consumer_key=wB4ozJxTijCwNuggJvPGtBGCRqaZVcF6jsrzUadF";
 
 }
