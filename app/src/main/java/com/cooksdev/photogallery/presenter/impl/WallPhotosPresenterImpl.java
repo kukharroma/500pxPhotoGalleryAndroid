@@ -13,8 +13,15 @@ import com.cooksdev.photogallery.util.ErrorHandler;
  */
 public class WallPhotosPresenterImpl implements WallPhotosPresenter {
 
+    private Wall wall;
+    private int currentPage;
+    private boolean loading;
+    private static int FIRST_PAGE = 1;
+    private static int DIFFERENCE_NEXT_PAGE = 1;
+
     private WallView view;
     private GetWallPhotosUseCase useCase = new GetWallPhotosUseCaseImpl();
+
 
     @Override
     public void setView(WallView view) {
@@ -22,13 +29,33 @@ public class WallPhotosPresenterImpl implements WallPhotosPresenter {
     }
 
     @Override
-    public void loadWall() {
+    public void loadFirstPage() {
         view.showLoading();
-        useCase.execute(new WallPhotosSubscriber(), 1);
+        setLoading(true);
+        useCase.execute(new WallPhotosSubscriber(), FIRST_PAGE);
     }
 
-    public void loadWallMore(){
-        useCase.execute(new WallPhotosSubscriber(), 1);
+    @Override
+    public void loadNextPage() {
+        this.loading = true;
+        int nextPage = currentPage + DIFFERENCE_NEXT_PAGE;
+        useCase.execute(new WallPhotosSubscriber(), nextPage);
+    }
+
+    public int getCurrentPage() {
+        return currentPage;
+    }
+
+    public int getTotalPages() {
+        return wall.getTotalPages();
+    }
+
+    public boolean isLoading() {
+        return loading;
+    }
+
+    public void setLoading(boolean loading) {
+        this.loading = loading;
     }
 
     @Override
@@ -36,21 +63,23 @@ public class WallPhotosPresenterImpl implements WallPhotosPresenter {
         useCase.unSubscribe();
     }
 
-    private class WallPhotosSubscriber extends BaseSubscriber<Wall>{
+    private class WallPhotosSubscriber extends BaseSubscriber<Wall> {
         @Override
         public void onCompleted() {
             view.hideLoading();
+            setLoading(false);
         }
 
         @Override
         public void onError(Throwable e) {
-            view.hideLoading();
             view.showMessage(ErrorHandler.handleError());
         }
 
         @Override
         public void onNext(Wall wall) {
-            view.showWallPhotos(wall);
+            WallPhotosPresenterImpl.this.wall = wall;
+            currentPage = wall.getCurrentPage();
+            view.updateWallPhotos(wall);
         }
     }
 }

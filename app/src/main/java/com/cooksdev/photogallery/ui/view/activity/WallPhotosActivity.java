@@ -22,6 +22,8 @@ public class WallPhotosActivity extends BaseActivity implements WallView {
 
     private WallPhotosPresenter presenter;
     private WallPhotosAdapter adapter;
+    private static final int COLUMNS = 2;
+
 
     @BindView(R.id.rv_wall_content)
     RecyclerView rvFeedContent;
@@ -36,7 +38,7 @@ public class WallPhotosActivity extends BaseActivity implements WallView {
         ButterKnife.bind(this);
         initialize();
         initWallPhotosAdapter();
-        presenter.loadWall();
+        presenter.loadFirstPage();
     }
 
     @Override
@@ -54,16 +56,16 @@ public class WallPhotosActivity extends BaseActivity implements WallView {
     @Override
     public void initWallPhotosAdapter() {
         adapter = new WallPhotosAdapter();
-        GridLayoutManager gridLM = new GridLayoutManager(this, 2);
+        GridLayoutManager gridLM = new GridLayoutManager(this, COLUMNS);
         rvFeedContent.setLayoutManager(gridLM);
+        rvFeedContent.setOnScrollListener(new OnPositionChangedListener());
         rvFeedContent.setAdapter(adapter);
     }
 
     @Override
-    public void showWallPhotos(Wall wall) {
-        adapter.updateWall(wall);
+    public void updateWallPhotos(Wall wall) {
+        adapter.updateWallPhotos(wall);
     }
-
 
     @Override
     public void showLoading() {
@@ -73,5 +75,23 @@ public class WallPhotosActivity extends BaseActivity implements WallView {
     @Override
     public void hideLoading() {
         pwWallContent.setVisibility(View.INVISIBLE);
+    }
+
+    private class OnPositionChangedListener extends RecyclerView.OnScrollListener {
+        @Override
+        public void onScrolled(RecyclerView recyclerView, int dx, int dy) {
+            super.onScrolled(recyclerView, dx, dy);
+            GridLayoutManager gridLayoutManager = (GridLayoutManager) rvFeedContent.getLayoutManager();
+            int totalItemCount = gridLayoutManager.getItemCount();
+            int visibleItemCount = gridLayoutManager.getChildCount();
+            int firstVisibleItemPosition = gridLayoutManager.findFirstVisibleItemPosition();
+
+            if (presenter.getCurrentPage() < presenter.getTotalPages())
+                if (visibleItemCount + firstVisibleItemPosition >= totalItemCount) {
+                    if (!presenter.isLoading()) {
+                        presenter.loadNextPage();
+                    }
+                }
+        }
     }
 }

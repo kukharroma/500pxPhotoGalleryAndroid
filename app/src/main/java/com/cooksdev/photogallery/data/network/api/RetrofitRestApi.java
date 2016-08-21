@@ -12,6 +12,6 @@ import com.cooksdev.photogallery.data.network.Urls;
 public interface RetrofitRestApi {
 
     @GET(Urls.WALL_PHOTOS)
-    Observable<WallEntity> getWallPhotos(@Query("number") int page);
+    Observable<WallEntity> getWallPhotos(@Query("page") int page);
 
 }

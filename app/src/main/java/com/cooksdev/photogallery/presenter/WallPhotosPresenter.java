@@ -8,5 +8,9 @@ import com.cooksdev.photogallery.ui.view.WallView;
  */
 public interface WallPhotosPresenter extends BasePresenter<WallView>{
 
-    void loadWall();
+    boolean isLoading();
+    void loadFirstPage();
+    void loadNextPage();
+    int getCurrentPage();
+    int getTotalPages();
 }

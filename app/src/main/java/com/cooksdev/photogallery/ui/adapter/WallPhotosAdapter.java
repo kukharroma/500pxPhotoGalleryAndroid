@@ -30,15 +30,8 @@ public class WallPhotosAdapter extends RecyclerView.Adapter<WallPhotosAdapter.Ph
     private Context context;
     private List<Photo> data = new ArrayList<>();
 
-    private Wall wall;
-
-    public void setWall(Wall wall){
-        this.wall = wall;
-        this.notifyDataSetChanged();
-    }
-
-    public void updateWall(Wall newWall){
-        this.data.addAll(newWall.getPhotos());
+    public void updateWallPhotos(Wall wall) {
+        this.data.addAll(wall.getPhotos());
         this.notifyDataSetChanged();
     }
 
