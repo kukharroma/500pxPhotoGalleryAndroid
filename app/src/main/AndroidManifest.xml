@@ -21,9 +21,12 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".ui.view.activity.PhotoActivity"
+        <activity android:name=".ui.view.activity.PhotoActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".ui.view.activity.WallPhotosActivity"/>
+        </activity>
 
-            />
     </application>
 
 </manifest>

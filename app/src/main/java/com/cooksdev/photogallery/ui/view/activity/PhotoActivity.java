@@ -47,6 +47,9 @@ public class PhotoActivity extends BaseActivity {
         setContentView(R.layout.activity_photo);
         ButterKnife.bind(this);
         setSupportActionBar(toolbar);
+        getSupportActionBar().setHomeButtonEnabled(true);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
         bindPhoto();
     }
 
