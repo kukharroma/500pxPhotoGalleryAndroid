@@ -3,6 +3,7 @@ package com.cooksdev.photogallery.data.network.api;
 import retrofit2.http.GET;
 import retrofit2.http.Query;
 import rx.Observable;
+
 import com.cooksdev.photogallery.data.dto.*;
 import com.cooksdev.photogallery.data.network.Urls;
 

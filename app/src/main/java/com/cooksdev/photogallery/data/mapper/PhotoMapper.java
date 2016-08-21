@@ -22,7 +22,8 @@ public class PhotoMapper {
 
     public static Photo transfer(PhotoEntity photoEntity){
         Photo  photo = new Photo();
-        photo.setUrl(photoEntity.getImageUrl());
+        photo.setSmallImageUrl(photoEntity.getImageUrl());
+        photo.setBigImageUrl(photoEntity.getImages().get(1).getUrl());
         photo.setFirstName(photoEntity.getUser().getFirstname());
         photo.setLastName(photoEntity.getUser().getLastname());
         photo.setCameraModel(photoEntity.getCamera());

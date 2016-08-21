@@ -1,20 +1,31 @@
 package com.cooksdev.photogallery.model;
 
+import java.io.Serializable;
+
 /**
  * Created by roma on 18.08.16.
  */
-public class Photo {
-    private String url;
+public class Photo implements Serializable{
+    private String smallImageUrl;
+    private String bigImageUrl;
     private String firstName;
     private String lastName;
     private String cameraModel;
 
-    public String getUrl() {
-        return url;
+    public String getSmallImageUrl() {
+        return smallImageUrl;
     }
 
-    public void setUrl(String url) {
-        this.url = url;
+    public void setSmallImageUrl(String smallImageUrl) {
+        this.smallImageUrl = smallImageUrl;
+    }
+
+    public String getBigImageUrl() {
+        return bigImageUrl;
+    }
+
+    public void setBigImageUrl(String bigImageUrl) {
+        this.bigImageUrl = bigImageUrl;
     }
 
     public String getFirstName() {

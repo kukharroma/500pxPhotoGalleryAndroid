@@ -1,5 +1,6 @@
 package com.cooksdev.photogallery.ui.view.activity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -7,6 +8,7 @@ import android.view.View;
 
 import com.cooksdev.photogallery.R;
 
+import com.cooksdev.photogallery.model.Photo;
 import com.cooksdev.photogallery.model.Wall;
 import com.cooksdev.photogallery.presenter.WallPhotosPresenter;
 import com.cooksdev.photogallery.presenter.impl.WallPhotosPresenterImpl;
@@ -17,7 +19,7 @@ import com.pnikosis.materialishprogress.ProgressWheel;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-public class WallPhotosActivity extends BaseActivity implements WallView {
+public class WallPhotosActivity extends BaseActivity implements WallView, WallPhotosAdapter.OnPhotoClickListener {
 
     private WallPhotosPresenter presenter;
     private WallPhotosAdapter adapter;
@@ -35,7 +37,7 @@ public class WallPhotosActivity extends BaseActivity implements WallView {
         setContentView(R.layout.activity_wall_photos);
         ButterKnife.bind(this);
         initialize();
-
+        presenter.loadFirstPage();
     }
 
     @Override
@@ -46,12 +48,6 @@ public class WallPhotosActivity extends BaseActivity implements WallView {
     }
 
     @Override
-    protected void onResume() {
-        super.onResume();
-        presenter.loadFirstPage();
-    }
-
-    @Override
     protected void onStop() {
         super.onStop();
         presenter.onStop();
@@ -59,7 +55,7 @@ public class WallPhotosActivity extends BaseActivity implements WallView {
 
     @Override
     public void initWallPhotosAdapter() {
-        adapter = new WallPhotosAdapter();
+        adapter = new WallPhotosAdapter(this);
         GridLayoutManager gridLM = new GridLayoutManager(this, COLUMNS);
         rvFeedContent.setLayoutManager(gridLM);
         rvFeedContent.setOnScrollListener(new OnPositionChangedListener());
@@ -97,5 +93,12 @@ public class WallPhotosActivity extends BaseActivity implements WallView {
                     }
                 }
         }
+    }
+
+    @Override
+    public void onPhotoClick(Photo photo) {
+        Intent intent = new Intent(this, PhotoItemActivity.class);
+        intent.putExtra(PhotoItemActivity.EXTRA_PHOTO, photo);
+        startActivity(intent);
     }
 }

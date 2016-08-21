@@ -72,6 +72,8 @@ public class WallPhotosPresenterImpl implements WallPhotosPresenter {
 
         @Override
         public void onError(Throwable e) {
+            setLoading(false);
+            view.hideLoading();
             view.showMessage(ErrorHandler.handleError());
         }
 

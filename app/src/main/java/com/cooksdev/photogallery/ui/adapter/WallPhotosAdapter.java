@@ -28,7 +28,12 @@ import butterknife.ButterKnife;
 public class WallPhotosAdapter extends RecyclerView.Adapter<WallPhotosAdapter.PhotoViewHolder> {
 
     private Context context;
+    private OnPhotoClickListener onPhotoClickListener;
     private List<Photo> data = new ArrayList<>();
+
+    public WallPhotosAdapter(OnPhotoClickListener onPhotoClickListener) {
+        this.onPhotoClickListener = onPhotoClickListener;
+    }
 
     public void updateWallPhotos(Wall wall) {
         this.data.addAll(wall.getPhotos());
@@ -53,7 +58,11 @@ public class WallPhotosAdapter extends RecyclerView.Adapter<WallPhotosAdapter.Ph
     @Override
     public void onBindViewHolder(PhotoViewHolder holder, int position) {
         Photo photo = data.get(position);
-        holder.bindPhotoImage(photo.getUrl());
+        holder.bindPhotoImage(photo.getSmallImageUrl());
+    }
+
+    public interface OnPhotoClickListener {
+        void onPhotoClick(Photo photo);
     }
 
     class PhotoViewHolder extends RecyclerView.ViewHolder {
@@ -66,6 +75,12 @@ public class WallPhotosAdapter extends RecyclerView.Adapter<WallPhotosAdapter.Ph
         public PhotoViewHolder(View itemView) {
             super(itemView);
             ButterKnife.bind(this, itemView);
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    onPhotoClickListener.onPhotoClick(data.get(getAdapterPosition()));
+                }
+            });
         }
 
         public void bindPhotoImage(String iconUrl) {
