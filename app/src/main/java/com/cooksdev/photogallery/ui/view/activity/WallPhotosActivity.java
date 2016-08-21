@@ -3,6 +3,7 @@ package com.cooksdev.photogallery.ui.view.activity;
 import android.annotation.TargetApi;
 import android.app.ActivityOptions;
 import android.content.Intent;
+import android.content.res.Configuration;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.v7.widget.AppCompatButton;
@@ -10,6 +11,7 @@ import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
+import android.widget.Toast;
 
 import com.cooksdev.photogallery.R;
 
@@ -29,7 +31,7 @@ public class WallPhotosActivity extends BaseActivity implements WallView, WallPh
 
     private WallPhotosPresenter presenter;
     private WallPhotosAdapter adapter;
-    private static final int COLUMNS = 2;
+    private static int COLUMNS;
 
     @BindView(R.id.toolbar)
     Toolbar toolbar;
@@ -67,11 +69,17 @@ public class WallPhotosActivity extends BaseActivity implements WallView, WallPh
     @Override
     public void initWallPhotosAdapter() {
         adapter = new WallPhotosAdapter(this);
+
+        if (getResources().getConfiguration().orientation == Configuration.ORIENTATION_PORTRAIT)
+            COLUMNS = 2;
+        else
+            COLUMNS = 4;
         GridLayoutManager gridLM = new GridLayoutManager(this, COLUMNS);
         rvFeedContent.setLayoutManager(gridLM);
         rvFeedContent.setOnScrollListener(new OnPositionChangedListener());
         rvFeedContent.setAdapter(adapter);
     }
+
 
     @Override
     @OnClick(R.id.bt_reload)
@@ -106,7 +114,6 @@ public class WallPhotosActivity extends BaseActivity implements WallView, WallPh
     }
 
 
-
     private class OnPositionChangedListener extends RecyclerView.OnScrollListener {
         @Override
         public void onScrolled(RecyclerView recyclerView, int dx, int dy) {
@@ -124,6 +131,7 @@ public class WallPhotosActivity extends BaseActivity implements WallView, WallPh
                 }
         }
     }
+
 
     @Override
     public void onPhotoClick(Photo photo) {
