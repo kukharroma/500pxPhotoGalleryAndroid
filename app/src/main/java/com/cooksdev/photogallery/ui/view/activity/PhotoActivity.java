@@ -36,8 +36,6 @@ public class PhotoActivity extends BaseActivity {
     ImageViewTouch ivPhoto;
     @BindView(R.id.pw_photo)
     ProgressWheel pwPhoto;
-    @BindView(R.id.tv_photo_name)
-    AppCompatTextView tvPhotoName;
     @BindView(R.id.tv_user_name)
     AppCompatTextView tvUserName;
     @BindView(R.id.bottomsheet)
