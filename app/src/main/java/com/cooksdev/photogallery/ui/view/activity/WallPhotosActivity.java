@@ -34,10 +34,14 @@ public class WallPhotosActivity extends BaseActivity implements WallView, WallPh
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_wall_photos);
-        ButterKnife.bind(this);
+        getSupportActionBar().setTitle(getString(R.string.tittle_wall_photos));
         initialize();
         presenter.loadFirstPage();
+    }
+
+    @Override
+    public int getContentViewId() {
+        return R.layout.activity_wall_photos;
     }
 
     @Override

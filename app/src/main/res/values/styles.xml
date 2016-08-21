@@ -1,4 +1,4 @@
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
 
     <!-- Base application theme. -->
     <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
@@ -8,11 +8,20 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
+    <style name="ToolbarTheme" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
 
     <style name="ProgressWheelTheme">
         <item name="android:visibility">invisible</item>
         <item name="android:layout_width">@dimen/wheel_width</item>
         <item name="android:layout_height">@dimen/wheel_height</item>
         <item name="android:layout_gravity">center</item>
+    </style>
+
+    <style name="TextViewTheme">
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:textColor">@color/colorWhite</item>
+        <item name="android:textSize">@dimen/text_view_text_size</item>
+        <item name="android:layout_marginLeft">@dimen/text_view_margin_left</item>
     </style>
 </resources>

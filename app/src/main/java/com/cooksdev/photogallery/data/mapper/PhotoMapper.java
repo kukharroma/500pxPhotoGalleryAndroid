@@ -24,6 +24,7 @@ public class PhotoMapper {
         Photo  photo = new Photo();
         photo.setSmallImageUrl(photoEntity.getImageUrl());
         photo.setBigImageUrl(photoEntity.getImages().get(1).getUrl());
+        photo.setPhotoName(photoEntity.getName());
         photo.setFirstName(photoEntity.getUser().getFirstname());
         photo.setLastName(photoEntity.getUser().getLastname());
         photo.setCameraModel(photoEntity.getCamera());

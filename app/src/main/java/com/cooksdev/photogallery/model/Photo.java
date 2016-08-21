@@ -8,6 +8,7 @@ import java.io.Serializable;
 public class Photo implements Serializable{
     private String smallImageUrl;
     private String bigImageUrl;
+    private String photoName;
     private String firstName;
     private String lastName;
     private String cameraModel;
@@ -26,6 +27,14 @@ public class Photo implements Serializable{
 
     public void setBigImageUrl(String bigImageUrl) {
         this.bigImageUrl = bigImageUrl;
+    }
+
+    public String getPhotoName() {
+        return photoName;
+    }
+
+    public void setPhotoName(String photoName) {
+        this.photoName = photoName;
     }
 
     public String getFirstName() {

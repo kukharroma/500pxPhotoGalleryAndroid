@@ -1,7 +1,9 @@
 package com.cooksdev.photogallery.ui.view.activity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.v7.widget.AppCompatTextView;
 import android.view.View;
 
 import com.bumptech.glide.Glide;
@@ -10,16 +12,18 @@ import com.bumptech.glide.request.RequestListener;
 import com.bumptech.glide.request.target.Target;
 import com.cooksdev.photogallery.R;
 import com.cooksdev.photogallery.model.Photo;
+import com.cooksdev.photogallery.util.ShareUtil;
+import com.flipboard.bottomsheet.BottomSheetLayout;
 import com.pnikosis.materialishprogress.ProgressWheel;
 
 import butterknife.BindView;
-import butterknife.ButterKnife;
+import butterknife.OnClick;
 import it.sephiroth.android.library.imagezoom.ImageViewTouch;
 
 /**
  * Created by roma on 21.08.16.
  */
-public class PhotoItemActivity extends BaseActivity{
+public class PhotoItemActivity extends BaseActivity {
 
     public static final String EXTRA_PHOTO = "extra_photo";
 
@@ -27,18 +31,41 @@ public class PhotoItemActivity extends BaseActivity{
     ImageViewTouch ivPhoto;
     @BindView(R.id.pw_photo)
     ProgressWheel pwPhoto;
+    @BindView(R.id.tv_photo_name)
+    AppCompatTextView tvPhotoName;
+    @BindView(R.id.tv_user_name)
+    AppCompatTextView tvUserName;
+    @BindView(R.id.bottomsheet)
+    BottomSheetLayout bottomSheet;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_photo);
-        ButterKnife.bind(this);
         bindPhoto();
     }
 
-    private void bindPhoto(){
-        Photo photo = (Photo) getIntent().getSerializableExtra(EXTRA_PHOTO);
+    @Override
+    public int getContentViewId() {
+        return R.layout.activity_photo;
+    }
+
+
+    private void bindPhoto() {
         pwPhoto.setVisibility(View.VISIBLE);
+
+        Photo photo = (Photo) getIntent().getSerializableExtra(EXTRA_PHOTO);
+        String photoTittle = photo.getPhotoName() != null ? photo.getPhotoName() : getString(R.string.app_name);
+        String firstName = photo.getFirstName();
+        String lastName = photo.getLastName();
+        String cameraModel = photo.getCameraModel();
+
+        String firstNameLastName = getString(R.string.textView_firstName_lastName, firstName, lastName);
+        if (cameraModel != null)
+            tvUserName.setText(getString(R.string.text_view_userName_cameraModel, firstNameLastName, cameraModel));
+        else
+            tvUserName.setText(firstNameLastName);
+        getSupportActionBar().setTitle(photoTittle);
+
         Glide.with(this)
                 .load(photo.getBigImageUrl())
                 .fitCenter()
@@ -58,5 +85,11 @@ public class PhotoItemActivity extends BaseActivity{
                     }
                 })
                 .into(ivPhoto);
+    }
+
+    @OnClick(R.id.fab_share)
+    public void shareImageUrl() {
+        Photo photo = (Photo) getIntent().getSerializableExtra(EXTRA_PHOTO);
+        ShareUtil.shareImage(this, bottomSheet, photo);
     }
 }
