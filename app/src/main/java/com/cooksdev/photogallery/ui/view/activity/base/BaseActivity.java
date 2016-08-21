@@ -19,12 +19,12 @@ public abstract class BaseActivity extends AppCompatActivity {
 //    @BindView(R.id.toolbar)
 //    Toolbar toolbar;
 
-    @Override
-    protected void onCreate(@Nullable Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-//        setSupportActionBar(toolbar);
-//        ButterKnife.bind(this);
-    }
+//    @Override
+//    protected void onCreate(@Nullable Bundle savedInstanceState) {
+//        super.onCreate(savedInstanceState);
+////        setSupportActionBar(toolbar);
+////        ButterKnife.bind(this);
+//    }
 
     public void showMessage(String message) {
         Toast.makeText(this, message, Toast.LENGTH_LONG).show();

@@ -6,6 +6,7 @@ import com.cooksdev.photogallery.interactor.impl.GetWallPhotosUseCaseImpl;
 import com.cooksdev.photogallery.model.Wall;
 import com.cooksdev.photogallery.presenter.WallPhotosPresenter;
 import com.cooksdev.photogallery.ui.view.WallView;
+import com.cooksdev.photogallery.util.ErrorHandler;
 
 /**
  * Created by roma on 17.08.16.
@@ -21,8 +22,12 @@ public class WallPhotosPresenterImpl implements WallPhotosPresenter {
     }
 
     @Override
-    public void loadFeed() {
+    public void loadWall() {
         view.showLoading();
+        useCase.execute(new WallPhotosSubscriber(), 1);
+    }
+
+    public void loadWallMore(){
         useCase.execute(new WallPhotosSubscriber(), 1);
     }
 
@@ -39,7 +44,8 @@ public class WallPhotosPresenterImpl implements WallPhotosPresenter {
 
         @Override
         public void onError(Throwable e) {
-            view.showMessage(e.getMessage());
+            view.hideLoading();
+            view.showMessage(ErrorHandler.handleError());
         }
 
         @Override

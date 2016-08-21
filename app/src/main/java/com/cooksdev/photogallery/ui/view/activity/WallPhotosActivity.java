@@ -23,9 +23,9 @@ public class WallPhotosActivity extends BaseActivity implements WallView {
     private WallPhotosPresenter presenter;
     private WallPhotosAdapter adapter;
 
-//    @BindView(R.id.rv_wall_content)
+    @BindView(R.id.rv_wall_content)
     RecyclerView rvFeedContent;
-//    @BindView(R.id.pw_wall_content)
+    @BindView(R.id.pw_wall_content)
     ProgressWheel pwWallContent;
 
 
@@ -33,22 +33,22 @@ public class WallPhotosActivity extends BaseActivity implements WallView {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_wall_photos);
-//        ButterKnife.bind(this);
-        rvFeedContent = (RecyclerView) findViewById(R.id.rv_wall_content);
-        pwWallContent = (ProgressWheel) findViewById(R.id.pw_wall_content);
+        ButterKnife.bind(this);
         initialize();
         initWallPhotosAdapter();
-        presenter.loadFeed();
+        presenter.loadWall();
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        presenter.onStop();
     }
 
     @Override
     public void initialize() {
         presenter = new WallPhotosPresenterImpl();
         presenter.setView(this);
-    }
-
-    private void setupWallPhotoAdapter(){
-
     }
 
     @Override

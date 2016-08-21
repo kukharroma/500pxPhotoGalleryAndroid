@@ -8,5 +8,5 @@ import com.cooksdev.photogallery.ui.view.WallView;
  */
 public interface WallPhotosPresenter extends BasePresenter<WallView>{
 
-    void loadFeed();
+    void loadWall();
 }
