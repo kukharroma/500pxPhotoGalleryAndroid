@@ -12,7 +12,6 @@ import com.cooksdev.photogallery.presenter.WallPhotosPresenter;
 import com.cooksdev.photogallery.presenter.impl.WallPhotosPresenterImpl;
 import com.cooksdev.photogallery.ui.adapter.WallPhotosAdapter;
 import com.cooksdev.photogallery.ui.view.WallView;
-import com.cooksdev.photogallery.ui.view.activity.base.BaseActivity;
 import com.pnikosis.materialishprogress.ProgressWheel;
 
 import butterknife.BindView;
@@ -30,14 +29,25 @@ public class WallPhotosActivity extends BaseActivity implements WallView {
     @BindView(R.id.pw_wall_content)
     ProgressWheel pwWallContent;
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_wall_photos);
         ButterKnife.bind(this);
         initialize();
+
+    }
+
+    @Override
+    public void initialize() {
+        presenter = new WallPhotosPresenterImpl();
+        presenter.setView(this);
         initWallPhotosAdapter();
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
         presenter.loadFirstPage();
     }
 
@@ -45,12 +55,6 @@ public class WallPhotosActivity extends BaseActivity implements WallView {
     protected void onStop() {
         super.onStop();
         presenter.onStop();
-    }
-
-    @Override
-    public void initialize() {
-        presenter = new WallPhotosPresenterImpl();
-        presenter.setView(this);
     }
 
     @Override

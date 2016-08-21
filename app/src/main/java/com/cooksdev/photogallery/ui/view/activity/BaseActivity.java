@@ -1,4 +1,4 @@
-package com.cooksdev.photogallery.ui.view.activity.base;
+package com.cooksdev.photogallery.ui.view.activity;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;

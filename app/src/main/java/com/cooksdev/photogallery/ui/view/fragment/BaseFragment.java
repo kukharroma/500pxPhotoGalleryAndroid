@@ -1,4 +1,4 @@
-package com.cooksdev.photogallery.ui.view.fragment.base;
+package com.cooksdev.photogallery.ui.view.fragment;
 
 import android.support.v4.app.Fragment;
 

@@ -1,6 +1,5 @@
 package com.cooksdev.photogallery.presenter;
 
-import com.cooksdev.photogallery.presenter.base.BasePresenter;
 import com.cooksdev.photogallery.ui.view.WallView;
 
 /**
@@ -9,8 +8,10 @@ import com.cooksdev.photogallery.ui.view.WallView;
 public interface WallPhotosPresenter extends BasePresenter<WallView>{
 
     boolean isLoading();
-    void loadFirstPage();
-    void loadNextPage();
     int getCurrentPage();
     int getTotalPages();
+
+    void loadFirstPage();
+    void loadNextPage();
+
 }
