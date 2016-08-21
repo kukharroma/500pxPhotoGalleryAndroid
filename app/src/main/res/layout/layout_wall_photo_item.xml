@@ -4,7 +4,7 @@
     android:layout_height="180dp"
     xmlns:wheel="http://schemas.android.com/apk/res-auto">
     <android.support.v7.widget.AppCompatImageView
-        android:id="@+id/iv_photo_item"
+        android:id="@+id/iv_photo"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
 

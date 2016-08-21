@@ -32,6 +32,10 @@
             style="@style/ProgressWheelTheme"
             app:matProg_barColor="@color/colorAccent"
             app:matProg_progressIndeterminate="true" />
+
+        <android.support.v7.widget.AppCompatButton
+            android:id="@+id/bt_reload"
+            style="@style/ButtonReloadTheme" />
     </FrameLayout>
 
 </android.support.design.widget.CoordinatorLayout>

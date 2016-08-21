@@ -21,7 +21,7 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".ui.view.activity.PhotoItemActivity"
+        <activity android:name=".ui.view.activity.PhotoActivity"
 
             />
     </application>

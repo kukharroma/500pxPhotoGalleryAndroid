@@ -67,12 +67,12 @@ public class WallPhotosAdapter extends RecyclerView.Adapter<WallPhotosAdapter.Ph
 
     class PhotoViewHolder extends RecyclerView.ViewHolder {
 
-        @BindView(R.id.iv_photo_item)
+        @BindView(R.id.iv_photo)
         AppCompatImageView ivPhotoItem;
         @BindView(R.id.pw_photo_item)
         ProgressWheel pwPhotoItem;
 
-        public PhotoViewHolder(View itemView) {
+        public PhotoViewHolder(final View itemView) {
             super(itemView);
             ButterKnife.bind(this, itemView);
             itemView.setOnClickListener(new View.OnClickListener() {

@@ -75,6 +75,9 @@ public class WallPhotosPresenterImpl implements WallPhotosPresenter {
             setLoading(false);
             view.hideLoading();
             view.showMessage(ErrorHandler.handleError());
+            if (currentPage == 0) {
+                view.showReload();
+            }
         }
 
         @Override

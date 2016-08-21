@@ -6,4 +6,6 @@ package com.cooksdev.photogallery.ui.view;
 public interface LoadingView {
     void showLoading();
     void hideLoading();
+    void showReload();
+    void hideReload();
 }

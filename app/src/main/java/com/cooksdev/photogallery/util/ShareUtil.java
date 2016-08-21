@@ -1,13 +1,10 @@
 package com.cooksdev.photogallery.util;
 
-import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 
 import com.cooksdev.photogallery.R;
-import com.cooksdev.photogallery.app.PhotoGalleryApplication;
 import com.cooksdev.photogallery.model.Photo;
-import com.cooksdev.photogallery.ui.view.activity.PhotoItemActivity;
 import com.flipboard.bottomsheet.BottomSheetLayout;
 import com.flipboard.bottomsheet.commons.IntentPickerSheetView;
 

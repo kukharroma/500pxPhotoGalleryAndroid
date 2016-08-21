@@ -17,4 +17,7 @@
     <!--sharing-->
     <string name="sharing_image_with">Share image with...</string>
 
+    <!--button-->
+    <string name="bt_reload">Reload</string>
+
 </resources>
