@@ -3,8 +3,6 @@ package com.cooksdev.photogallery.data.network.api;
 import com.cooksdev.photogallery.data.dto.WallEntity;
 import com.cooksdev.photogallery.data.network.Urls;
 
-import okhttp3.OkHttpClient;
-import okhttp3.logging.HttpLoggingInterceptor;
 import retrofit2.Retrofit;
 import retrofit2.adapter.rxjava.RxJavaCallAdapterFactory;
 import retrofit2.converter.gson.GsonConverterFactory;

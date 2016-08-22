@@ -4,7 +4,6 @@ package com.cooksdev.photogallery.data.repository;
 import com.cooksdev.photogallery.data.dto.WallEntity;
 import com.cooksdev.photogallery.data.mapper.WallMapper;
 import com.cooksdev.photogallery.data.network.api.WallPhotoRestApiImpl;
-import com.cooksdev.photogallery.model.Photo;
 import com.cooksdev.photogallery.model.Wall;
 
 import rx.Observable;

@@ -1,20 +1,14 @@
 package com.cooksdev.photogallery.ui.view.activity;
 
-import android.annotation.TargetApi;
-import android.app.ActivityOptions;
 import android.content.Intent;
 import android.content.res.Configuration;
-import android.os.Build;
 import android.os.Bundle;
 import android.support.v7.widget.AppCompatButton;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.support.v7.widget.Toolbar;
 import android.view.View;
-import android.widget.Toast;
 
 import com.cooksdev.photogallery.R;
-
 import com.cooksdev.photogallery.model.Photo;
 import com.cooksdev.photogallery.model.Wall;
 import com.cooksdev.photogallery.presenter.WallPhotosPresenter;
@@ -24,7 +18,6 @@ import com.cooksdev.photogallery.ui.view.WallView;
 import com.pnikosis.materialishprogress.ProgressWheel;
 
 import butterknife.BindView;
-import butterknife.ButterKnife;
 import butterknife.OnClick;
 
 public class WallPhotosActivity extends BaseActivity implements WallView, WallPhotosAdapter.OnPhotoClickListener {
