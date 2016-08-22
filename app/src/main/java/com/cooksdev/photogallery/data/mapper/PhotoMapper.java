@@ -11,7 +11,9 @@ import java.util.List;
  */
 public class PhotoMapper {
 
-    public static List<Photo> transfer(List<PhotoEntity> photoEntities){
+    private static final int FIRST = 1;
+
+    public static List<Photo> transfer(List<PhotoEntity> photoEntities) {
         List<Photo> photos = new ArrayList<>();
         for (PhotoEntity photoEntity : photoEntities) {
             photos.add(transfer(photoEntity));
@@ -20,10 +22,10 @@ public class PhotoMapper {
         return photos;
     }
 
-    public static Photo transfer(PhotoEntity photoEntity){
-        Photo  photo = new Photo();
+    public static Photo transfer(PhotoEntity photoEntity) {
+        Photo photo = new Photo();
         photo.setSmallImageUrl(photoEntity.getImageUrl());
-        photo.setBigImageUrl(photoEntity.getImages().get(1).getUrl());
+        photo.setBigImageUrl(photoEntity.getImages().get(FIRST).getUrl());
         photo.setPhotoName(photoEntity.getName());
         photo.setFirstName(photoEntity.getUser().getFirstname());
         photo.setLastName(photoEntity.getUser().getLastname());

@@ -14,7 +14,7 @@
     <string name="textView_firstName_lastName">%1$s %2$s</string>
     <string name="text_view_userName_cameraModel">%1$s ( %2$s )</string>
 
-    <!--sharing-->
+    <!--fab sharing-->
     <string name="sharing_image_with">Share image with...</string>
 
     <!--button-->

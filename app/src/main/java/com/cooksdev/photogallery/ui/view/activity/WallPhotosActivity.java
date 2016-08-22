@@ -33,8 +33,6 @@ public class WallPhotosActivity extends BaseActivity implements WallView, WallPh
     private WallPhotosAdapter adapter;
     private static int COLUMNS;
 
-    @BindView(R.id.toolbar)
-    Toolbar toolbar;
     @BindView(R.id.rv_wall_content)
     RecyclerView rvFeedContent;
     @BindView(R.id.pw_wall_content)
@@ -45,12 +43,14 @@ public class WallPhotosActivity extends BaseActivity implements WallView, WallPh
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_wall_photos);
-        ButterKnife.bind(this);
-        setSupportActionBar(toolbar);
         getSupportActionBar().setTitle(getString(R.string.tittle_wall_photos));
         initialize();
         presenter.loadFirstPage();
+    }
+
+    @Override
+    public int getContentViewId() {
+        return R.layout.activity_wall_photos;
     }
 
     @Override
@@ -69,7 +69,6 @@ public class WallPhotosActivity extends BaseActivity implements WallView, WallPh
     @Override
     public void initWallPhotosAdapter() {
         adapter = new WallPhotosAdapter(this);
-
         if (getResources().getConfiguration().orientation == Configuration.ORIENTATION_PORTRAIT)
             COLUMNS = 2;
         else
@@ -79,7 +78,6 @@ public class WallPhotosActivity extends BaseActivity implements WallView, WallPh
         rvFeedContent.setOnScrollListener(new OnPositionChangedListener());
         rvFeedContent.setAdapter(adapter);
     }
-
 
     @Override
     @OnClick(R.id.bt_reload)
@@ -131,7 +129,6 @@ public class WallPhotosActivity extends BaseActivity implements WallView, WallPh
                 }
         }
     }
-
 
     @Override
     public void onPhotoClick(Photo photo) {

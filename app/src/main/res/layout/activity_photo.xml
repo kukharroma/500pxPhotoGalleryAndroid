@@ -29,7 +29,6 @@
             <com.pnikosis.materialishprogress.ProgressWheel
                 android:id="@+id/pw_photo"
                 style="@style/ProgressWheelTheme"
-                android:layout_gravity="center"
                 app:matProg_barColor="@color/colorAccent"
                 app:matProg_progressIndeterminate="true" />
 
@@ -41,18 +40,13 @@
 
             <FrameLayout
                 android:id="@+id/text_container"
-                android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:layout_alignBottom="@+id/iv_album"
-                android:layout_gravity="center_horizontal|bottom"
-                android:background="@color/colorAccentAlpha"
-                android:orientation="vertical">
-
+                style="@style/UserInfoContainerTheme"
+                android:layout_alignBottom="@+id/iv_album">
 
                 <android.support.v7.widget.AppCompatTextView
                     android:id="@+id/tv_user_name"
-                    android:layout_gravity="center"
-                    style="@style/TextViewTheme" />
+                    style="@style/TextViewTheme"
+                    android:layout_gravity="center" />
 
             </FrameLayout>
 
@@ -60,11 +54,7 @@
 
         <android.support.design.widget.FloatingActionButton
             android:id="@+id/fab_share"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="bottom|end"
-            android:layout_margin="16dp"
-            android:src="@mipmap/ic_share"
+            style="@style/FloatingActionButtonTheme"
             app:fabSize="normal" />
     </android.support.design.widget.CoordinatorLayout>
 </com.flipboard.bottomsheet.BottomSheetLayout>

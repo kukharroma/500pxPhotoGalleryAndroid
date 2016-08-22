@@ -34,4 +34,20 @@
         <item name="android:textSize">@dimen/text_view_text_size</item>
         <item name="android:layout_marginLeft">@dimen/text_view_margin_left</item>
     </style>
+
+    <style name="UserInfoContainerTheme">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">50dp</item>
+        <item name="android:layout_gravity">center_horizontal|bottom</item>
+        <item name="android:background">@color/colorAccentAlpha</item>
+        <item name="android:orientation">vertical</item>
+    </style>
+
+    <style name="FloatingActionButtonTheme" parent="Widget.Design.FloatingActionButton">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_gravity">bottom|end</item>
+        <item name="android:layout_margin">@dimen/fab_margin</item>
+        <item name="android:src">@mipmap/ic_share</item>
+    </style>
 </resources>

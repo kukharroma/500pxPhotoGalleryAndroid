@@ -16,6 +16,7 @@ public class WallPhotosPresenterImpl implements WallPhotosPresenter {
     private Wall wall;
     private int currentPage;
     private boolean loading;
+    private static int NO_PAGE = 0;
     private static int FIRST_PAGE = 1;
     private static int DIFFERENCE_NEXT_PAGE = 1;
 
@@ -75,7 +76,7 @@ public class WallPhotosPresenterImpl implements WallPhotosPresenter {
             setLoading(false);
             view.hideLoading();
             view.showMessage(ErrorHandler.handleError());
-            if (currentPage == 0) {
+            if (currentPage == NO_PAGE) {
                 view.showReload();
             }
         }

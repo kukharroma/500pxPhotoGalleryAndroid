@@ -19,9 +19,6 @@ public class WallPhotoRestApiImpl implements WallPhotoRestApi {
     private RetrofitRestApi retrofitRestApi;
 
     private WallPhotoRestApiImpl() {
-//        HttpLoggingInterceptor interceptor = new HttpLoggingInterceptor();
-//        interceptor.setLevel(HttpLoggingInterceptor.Level.BODY);
-//        OkHttpClient client = new OkHttpClient.Builder().addInterceptor(interceptor).build();
         retrofitRestApi = new Retrofit.Builder()
                 .baseUrl(Urls.BASE_URL)
                 .addConverterFactory(GsonConverterFactory.create())

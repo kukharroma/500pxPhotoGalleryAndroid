@@ -7,6 +7,8 @@ import com.cooksdev.photogallery.model.Wall;
  */
 public interface WallView extends BaseView, LoadingView {
 
+    void showReload();
+    void hideReload();
     void reloadWallPhotos();
     void updateWallPhotos(Wall wall);
     void initWallPhotosAdapter();
