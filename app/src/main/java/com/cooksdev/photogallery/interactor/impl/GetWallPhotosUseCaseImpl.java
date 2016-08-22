@@ -5,6 +5,7 @@ import com.cooksdev.photogallery.data.repository.WallPhotoRepositoryImpl;
 import com.cooksdev.photogallery.interactor.GetWallPhotosUseCase;
 import com.cooksdev.photogallery.model.Wall;
 
+import rx.Observable;
 import rx.Subscriber;
 import rx.Subscription;
 import rx.android.schedulers.AndroidSchedulers;
