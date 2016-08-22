@@ -1,6 +1,6 @@
-# 500pxPhotoGalleryAndroid
+# 500pxPhotoGalleryAndroid [App in Play Market]
 ## Show popular photos from [500px]
-## Use: [500pxApi] , [Retrofit], [RxJava] and MVP architecture.
+## Use: [500pxApi] , [Retrofit], [RxJava] and MVP architecture. 
 
 <img src="/app/src/main/assets/1.png">
 <img src="/app/src/main/assets/2.png">
@@ -19,3 +19,4 @@
 [500pxApi]: https://github.com/500px/api-documentation
 [Retrofit]: http://square.github.io/retrofit/
 [RxJava]: https://github.com/ReactiveX/RxJava
+[App in Play Market]: https://play.google.com/store/apps/details?id=com.cooksdev.photogallery
