@@ -1,7 +1,7 @@
-package com.cooksdev.photogallery.interactor;
+package com.cooksdev.photogallery.domain.interactor;
 
 
-import com.cooksdev.photogallery.model.Wall;
+import com.cooksdev.photogallery.data.model.Wall;
 
 import rx.Subscriber;
 

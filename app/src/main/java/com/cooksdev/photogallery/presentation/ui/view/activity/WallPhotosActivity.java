@@ -1,4 +1,4 @@
-package com.cooksdev.photogallery.ui.view.activity;
+package com.cooksdev.photogallery.presentation.ui.view.activity;
 
 import android.content.Intent;
 import android.content.res.Configuration;
@@ -9,12 +9,12 @@ import android.support.v7.widget.RecyclerView;
 import android.view.View;
 
 import com.cooksdev.photogallery.R;
-import com.cooksdev.photogallery.model.Photo;
-import com.cooksdev.photogallery.model.Wall;
-import com.cooksdev.photogallery.presenter.WallPhotosPresenter;
-import com.cooksdev.photogallery.presenter.impl.WallPhotosPresenterImpl;
-import com.cooksdev.photogallery.ui.adapter.WallPhotosAdapter;
-import com.cooksdev.photogallery.ui.view.WallView;
+import com.cooksdev.photogallery.data.model.Photo;
+import com.cooksdev.photogallery.data.model.Wall;
+import com.cooksdev.photogallery.presentation.presenter.WallPhotosPresenter;
+import com.cooksdev.photogallery.presentation.presenter.impl.WallPhotosPresenterImpl;
+import com.cooksdev.photogallery.presentation.ui.adapter.WallPhotosAdapter;
+import com.cooksdev.photogallery.presentation.ui.view.WallView;
 import com.pnikosis.materialishprogress.ProgressWheel;
 
 import butterknife.BindView;

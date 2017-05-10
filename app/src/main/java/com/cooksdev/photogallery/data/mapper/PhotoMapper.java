@@ -1,7 +1,7 @@
 package com.cooksdev.photogallery.data.mapper;
 
 import com.cooksdev.photogallery.data.dto.PhotoEntity;
-import com.cooksdev.photogallery.model.Photo;
+import com.cooksdev.photogallery.data.model.Photo;
 
 import java.util.ArrayList;
 import java.util.List;

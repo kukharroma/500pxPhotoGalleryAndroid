@@ -1,4 +1,4 @@
-package com.cooksdev.photogallery.ui.view.activity;
+package com.cooksdev.photogallery.presentation.ui.view.activity;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -10,8 +10,8 @@ import com.bumptech.glide.load.resource.drawable.GlideDrawable;
 import com.bumptech.glide.request.RequestListener;
 import com.bumptech.glide.request.target.Target;
 import com.cooksdev.photogallery.R;
-import com.cooksdev.photogallery.model.Photo;
-import com.cooksdev.photogallery.util.ShareUtil;
+import com.cooksdev.photogallery.data.model.Photo;
+import com.cooksdev.photogallery.presentation.util.ShareUtil;
 import com.flipboard.bottomsheet.BottomSheetLayout;
 import com.pnikosis.materialishprogress.ProgressWheel;
 

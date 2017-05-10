@@ -1,4 +1,4 @@
-package com.cooksdev.photogallery.model;
+package com.cooksdev.photogallery.data.model;
 
 import java.io.Serializable;
 

@@ -1,10 +1,10 @@
-package com.cooksdev.photogallery.util;
+package com.cooksdev.photogallery.presentation.util;
 
 import android.content.Context;
 import android.content.Intent;
 
 import com.cooksdev.photogallery.R;
-import com.cooksdev.photogallery.model.Photo;
+import com.cooksdev.photogallery.data.model.Photo;
 import com.flipboard.bottomsheet.BottomSheetLayout;
 import com.flipboard.bottomsheet.commons.IntentPickerSheetView;
 

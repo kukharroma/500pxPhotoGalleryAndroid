@@ -1,4 +1,4 @@
-package com.cooksdev.photogallery.ui.view;
+package com.cooksdev.photogallery.presentation.ui.view;
 
 /**
  * Created by roma on 18.08.16.

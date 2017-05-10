@@ -1,4 +1,4 @@
-package com.cooksdev.photogallery.presenter;
+package com.cooksdev.photogallery.presentation.presenter;
 
 /**
  * Created by roma on 17.08.16.

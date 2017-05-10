@@ -1,11 +1,10 @@
-package com.cooksdev.photogallery.interactor.impl;
+package com.cooksdev.photogallery.domain.interactor.impl;
 
 import com.cooksdev.photogallery.data.repository.WallPhotoRepository;
 import com.cooksdev.photogallery.data.repository.WallPhotoRepositoryImpl;
-import com.cooksdev.photogallery.interactor.GetWallPhotosUseCase;
-import com.cooksdev.photogallery.model.Wall;
+import com.cooksdev.photogallery.domain.interactor.GetWallPhotosUseCase;
+import com.cooksdev.photogallery.data.model.Wall;
 
-import rx.Observable;
 import rx.Subscriber;
 import rx.Subscription;
 import rx.android.schedulers.AndroidSchedulers;

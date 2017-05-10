@@ -1,12 +1,12 @@
-package com.cooksdev.photogallery.presenter.impl;
+package com.cooksdev.photogallery.presentation.presenter.impl;
 
-import com.cooksdev.photogallery.interactor.BaseSubscriber;
-import com.cooksdev.photogallery.interactor.GetWallPhotosUseCase;
-import com.cooksdev.photogallery.interactor.impl.GetWallPhotosUseCaseImpl;
-import com.cooksdev.photogallery.model.Wall;
-import com.cooksdev.photogallery.presenter.WallPhotosPresenter;
-import com.cooksdev.photogallery.ui.view.WallView;
-import com.cooksdev.photogallery.util.ErrorHandler;
+import com.cooksdev.photogallery.domain.interactor.BaseSubscriber;
+import com.cooksdev.photogallery.domain.interactor.GetWallPhotosUseCase;
+import com.cooksdev.photogallery.domain.interactor.impl.GetWallPhotosUseCaseImpl;
+import com.cooksdev.photogallery.data.model.Wall;
+import com.cooksdev.photogallery.presentation.presenter.WallPhotosPresenter;
+import com.cooksdev.photogallery.presentation.ui.view.WallView;
+import com.cooksdev.photogallery.presentation.util.ErrorHandler;
 
 /**
  * Created by roma on 17.08.16.

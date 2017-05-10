@@ -1,7 +1,7 @@
 package com.cooksdev.photogallery.data.mapper;
 
 import com.cooksdev.photogallery.data.dto.WallEntity;
-import com.cooksdev.photogallery.model.Wall;
+import com.cooksdev.photogallery.data.model.Wall;
 
 /**
  * Created by roma on 19.08.16.

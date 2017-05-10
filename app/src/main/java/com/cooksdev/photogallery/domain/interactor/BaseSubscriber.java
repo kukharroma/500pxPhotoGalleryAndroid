@@ -1,4 +1,4 @@
-package com.cooksdev.photogallery.interactor;
+package com.cooksdev.photogallery.domain.interactor;
 
 import rx.Subscriber;
 

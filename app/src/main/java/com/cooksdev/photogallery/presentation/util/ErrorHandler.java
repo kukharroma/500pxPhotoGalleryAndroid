@@ -1,13 +1,10 @@
-package com.cooksdev.photogallery.util;
+package com.cooksdev.photogallery.presentation.util;
 
 import android.content.Context;
 import android.content.res.Resources;
-import android.support.annotation.NonNull;
 
 import com.cooksdev.photogallery.R;
-import com.cooksdev.photogallery.app.PhotoGalleryApplication;
-
-import butterknife.BindString;
+import com.cooksdev.photogallery.PhotoGalleryApplication;
 
 /**
  * Created by roma on 21.08.16.

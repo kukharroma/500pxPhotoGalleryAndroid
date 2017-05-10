@@ -1,4 +1,4 @@
-package com.cooksdev.photogallery.app;
+package com.cooksdev.photogallery;
 
 import android.app.Application;
 

@@ -1,4 +1,4 @@
-package com.cooksdev.photogallery.util;
+package com.cooksdev.photogallery.presentation.util;
 
 import android.content.Context;
 import android.net.ConnectivityManager;

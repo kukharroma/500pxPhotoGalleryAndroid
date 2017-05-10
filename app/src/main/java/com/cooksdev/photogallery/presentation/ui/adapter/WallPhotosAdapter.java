@@ -1,4 +1,4 @@
-package com.cooksdev.photogallery.ui.adapter;
+package com.cooksdev.photogallery.presentation.ui.adapter;
 
 import android.content.Context;
 import android.support.v7.widget.AppCompatImageView;
@@ -12,8 +12,8 @@ import com.bumptech.glide.load.resource.drawable.GlideDrawable;
 import com.bumptech.glide.request.RequestListener;
 import com.bumptech.glide.request.target.Target;
 import com.cooksdev.photogallery.R;
-import com.cooksdev.photogallery.model.Photo;
-import com.cooksdev.photogallery.model.Wall;
+import com.cooksdev.photogallery.data.model.Photo;
+import com.cooksdev.photogallery.data.model.Wall;
 import com.pnikosis.materialishprogress.ProgressWheel;
 
 import java.util.ArrayList;

@@ -1,6 +1,6 @@
-package com.cooksdev.photogallery.ui.view;
+package com.cooksdev.photogallery.presentation.ui.view;
 
-import com.cooksdev.photogallery.model.Wall;
+import com.cooksdev.photogallery.data.model.Wall;
 
 /**
  * Created by roma on 18.08.16.
